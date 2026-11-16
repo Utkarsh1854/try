@@ -10,6 +10,6 @@ let triangle = 0.5 * base * height;
 let rectangle = length * breadth;
 let circle = Math.PI * radius * radius;
 
-document.write("Area of Triangle = " + triangle + "<br>");
-document.write("Area of Rectangle = " + rectangle + "<br>");
-document.write("Area of Circle = " + circle.toFixed(2));
+console.log("Area of Triangle = " + triangle);
+console.log("Area of Rectangle = " + rectangle);
+console.log("Area of Circle = " + circle);
