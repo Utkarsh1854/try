@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<h2>String Operations</h2>
+
+<script>
+    let str = prompt("Enter a string:");
+
+    // Reverse string
+    let reverse = str.split("").reverse().join("");
+
+    // Replace characters
+    let oldChar = prompt("Enter character to replace:");
+    let newChar = prompt("Enter replacement character:");
+
+    let replaced = oldChar === ""
+        ? str
+        : str.replaceAll(oldChar, newChar);
+
+    // Palindrome check
+    let cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    let palindrome =
+        cleaned === cleaned.split("").reverse().join("");
+
+    document.write("Original String = " + str + "<br>");
+    document.write("Reversed String = " + reverse + "<br>");
+    document.write("Replaced String = " + replaced + "<br>");
+
+    document.write(
+        "Palindrome = " + (palindrome ? "Yes" : "No")
+    );
+</script>
+
+</body>
+</html>
