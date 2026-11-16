@@ -1,15 +1,29 @@
-let base = Number(prompt("Enter triangle base:"));
-let height = Number(prompt("Enter triangle height:"));
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area of Shapes</title>
+</head>
+<body>
 
-let length = Number(prompt("Enter rectangle length:"));
-let breadth = Number(prompt("Enter rectangle breadth:"));
+<h2>Area Calculator</h2>
 
-let radius = Number(prompt("Enter circle radius:"));
+<script>
+    let base = Number(prompt("Enter triangle base:"));
+    let height = Number(prompt("Enter triangle height:"));
 
-let triangle = 0.5 * base * height;
-let rectangle = length * breadth;
-let circle = Math.PI * radius * radius;
+    let length = Number(prompt("Enter rectangle length:"));
+    let breadth = Number(prompt("Enter rectangle breadth:"));
 
-console.log("Area of Triangle = " + triangle);
-console.log("Area of Rectangle = " + rectangle);
-console.log("Area of Circle = " + circle);
+    let radius = Number(prompt("Enter circle radius:"));
+
+    let triangle = 0.5 * base * height;
+    let rectangle = length * breadth;
+    let circle = Math.PI * radius * radius;
+
+    document.write("Area of Triangle = " + triangle + "<br>");
+    document.write("Area of Rectangle = " + rectangle + "<br>");
+    document.write("Area of Circle = " + circle.toFixed(2));
+</script>
+
+</body>
+</html>
