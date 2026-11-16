@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+<h2>Countdown Timer</h2>
+
+<p id="demo"></p>
+
+<script>
+    let dateInput = prompt(
+        "Enter deadline (YYYY-MM-DD HH:MM:SS):"
+    );
+
+    let deadline = new Date(
+        dateInput.replace(" ", "T")
+    ).getTime();
+
+    if (isNaN(deadline)) {
+        document.getElementById("demo").innerHTML =
+            "Invalid date";
+    }
+    else {
+        let timer = setInterval(function() {
+
+            let now = new Date().getTime();
+
+            let t = deadline - now;
+
+            if (t <= 0) {
+                clearInterval(timer);
+
+                document.getElementById("demo").innerHTML =
+                    "Countdown Finished";
+
+                return;
+            }
+
+            let days = Math.floor(
+                t / (1000 * 60 * 60 * 24)
+            );
+
+            let hours = Math.floor(
+                (t % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+            let minutes = Math.floor(
+                (t % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+            let seconds = Math.floor(
+                (t % (1000 * 60)) / 1000
+            );
+
+            document.getElementById("demo").innerHTML =
+                days + "d " +
+                hours + "h " +
+                minutes + "m " +
+                seconds + "s";
+
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
