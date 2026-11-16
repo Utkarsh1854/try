@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form id="studentForm">
+
+    Name:
+    <input type="text" id="name">
+    <br><br>
+
+    Address:
+    <textarea id="address"></textarea>
+    <br><br>
+
+    City:
+    <input type="text" id="city">
+    <br><br>
+
+    State:
+    <input type="text" id="state">
+    <br><br>
+
+    Gender:
+    <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+    <br><br>
+
+    Mobile:
+    <input type="text" id="mobile">
+    <br><br>
+
+    Email:
+    <input type="text" id="email">
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+<script>
+
+document.getElementById("studentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+
+    let address = document.getElementById("address").value.trim();
+
+    let city = document.getElementById("city").value.trim();
+
+    let state = document.getElementById("state").value.trim();
+
+    let gender = document.getElementById("gender").value;
+
+    let mobile = document.getElementById("mobile").value.trim();
+
+    let email = document.getElementById("email").value.trim();
+
+    let message = document.getElementById("message");
+
+    // Regular expressions
+    let namePattern = /^[A-Za-z ]{2,}$/;
+
+    let mobilePattern = /^[6-9][0-9]{9}$/;
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Check empty fields
+    if (!name || !address || !city || !state ||
+        !gender || !mobile || !email) {
+
+        message.textContent = "Please fill all fields.";
+        return;
+    }
+
+    // Validate name
+    if (!namePattern.test(name)) {
+
+        message.textContent = "Enter a valid name.";
+
+        document.getElementById("name").focus();
+
+        return;
+    }
+
+    // Validate mobile
+    if (!mobilePattern.test(mobile)) {
+
+        message.textContent = "Enter a valid 10-digit mobile number.";
+
+        document.getElementById("mobile").focus();
+
+        return;
+    }
+
+    // Validate email
+    if (!emailPattern.test(email)) {
+
+        message.textContent = "Enter a valid email address.";
+
+        document.getElementById("email").focus();
+
+        return;
+    }
+
+    message.textContent =
+        "Congratulations " + name +
+        "! Registration successful. Welcome!";
+
+});
+
+</script>
+
+</body>
+</html>
